@@ -1,0 +1,2 @@
+elorating(id pk, elo, wins, losses, kills, deaths)
+elologs(id pk, uid fk, type, before, after)

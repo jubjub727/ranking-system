@@ -1,0 +1,13 @@
+
+--	rating_elo.lua
+
+ELO = ELO or {}
+
+if SERVER then
+
+	include ( "elo/config.lua" )
+	include ( "elo/init.lua" )
+	include ( "elo/sv_hook.lua" )
+	include ( "elo/sv_function.lua" )
+
+end
