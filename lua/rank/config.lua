@@ -16,9 +16,9 @@ RANK.RewardKill = true
 -- Do players get punished for RDM
 RANK.PunishRDM = false
 
--- List of ranks {<rankname>, <percentile>, <colour object>}
+-- List of ranks highest percentile first besides {<rankname>, <percentile>, <colour object>}
 RANK.Ranks = {
-    {"Unranked", nil, nil},
+    {"Unranked", nil, nil}, -- DO NOT REMOVE
     {"The Global Elite", 98, rainbow},
     {"Supreme Master First Class", 95, Color(50, 129, 255)},
     {"Legendary Eagle Master", 90, Color(255, 210, 49)},
