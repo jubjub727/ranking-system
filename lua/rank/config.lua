@@ -4,6 +4,9 @@ Ranking System For Garrys Mod made by jubjub and Snell
 
 ]]--
 
+-- How to store the data
+RANK.Handler = "sql"
+
 -- Round wins until a player is no longer Unranked
 RANK.Promotion = 3
 
