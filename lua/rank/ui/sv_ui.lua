@@ -10,11 +10,11 @@ hook.Add( "Think", "scoreboardthink", function()
 		local data = {}
 
 		data[0] = v:SteamID64()
-		data[1] = ELO.DataProvider:GetRankName(tonumber(ELO.DataProvider:GetRating( v:SteamID64(), 0 )))
+		data[1] = ELO.DataProvider:GetRankName(v:SteamID64())
 		
         players[k] = data
 	end
-    
+
 	net.Start("scoreboardrank")
 	net.WriteTable(players)
 	net.Broadcast()
