@@ -86,3 +86,51 @@ function RANK:GetRating ( ply )
 	
 	
 end
+
+function RANK:GetRankName( steamid )
+
+	ELO.DataProvider:Init ()
+	
+	steamid = tostring ( steamid )
+	
+	local query = string.format ( [[
+		SELECT * FROM %s
+		WHERE p_SteamID64=%s
+		LIMIT 1
+	]], table_elo, SQLStr ( steamid ) )
+	
+	local qData = sql.Query ( query )
+
+	local rating = qData[1]["elo"]
+	local wins = qData[1]["wins"]
+	
+	local query = string.format ( [[
+	SELECT p_SteamID64, elo FROM %s ORDER BY elo ASC
+	]], table_elo )
+
+	local rs = sql.Query ( query )
+
+	local count = #rs
+
+	if wins < 3 then
+		return 1
+	else
+		for k,v in pairs(RANK.Ranks) do
+			if not (k == 1) then 
+				if elo >= tonumber(RANK:GetPercentile(v[2], count))
+					return k
+				end
+			end
+		end
+	end
+
+end
+
+function RANK:GetPercentile( percentile, length )
+	local index = math.Round(length * (percentile / 100))
+	local query = string.format ( [[SELECT elo FROM %s ORDER BY elo ASC LIMIT 1 OFFSET %s;]], table_elo, index )
+	local rs = sql.Query(query)
+	for k,v in pairs(rs) do
+		return v["elo"]
+	end
+end
