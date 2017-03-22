@@ -1,2 +1,2 @@
 elorating(id pk, dname, elo, wins, losses, kills, deaths)
-elologs(id pk, uid fk, type, before, after)
+elologs(id pk, time, uid fk, type, before, after)
