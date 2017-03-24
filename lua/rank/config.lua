@@ -4,6 +4,13 @@ Ranking System For Garrys Mod made by jubjub and Snell
 
 ]]--
 
+-- Elo Values
+RANK.valueKill = 3
+RANK.valueRound = 20
+
+-- Minimum Players (-1 for none)
+RANK.minimumPlayers = 4
+
 -- Round wins until a player is no longer Unranked
 RANK.Promotion = 3
 
