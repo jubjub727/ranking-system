@@ -113,12 +113,12 @@ function RANK:GetRankName( steamid )
 	local count = #rs
 
 	if wins < 3 then
-		return 1
+		return RANK.Ranks[1]
 	else
 		for k,v in pairs(RANK.Ranks) do
 			if not (k == 1) then 
 				if elo >= tonumber(RANK:GetPercentile(v[2], count))
-					return k
+					return v
 				end
 			end
 		end

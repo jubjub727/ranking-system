@@ -10,7 +10,7 @@ end )
 local function getRankName(ply)
     for k,v in pairs(ranks) do
         if ply:SteamID64() == v[0] then
-            return v[1]
+            return v
         end
     end
     return { "Failed To Get Rank", nil, Color(240, 240, 240) }
